@@ -9,7 +9,13 @@ public class Rq {
         this.actionMethod = cmdBits[0];
         if (cmdBits.length == 2) {
             String[] idxBits = cmdBits[1].split("=");
-            this.idx = Integer.parseInt(idxBits[1]);
+            if (idxBits.length > 1) {
+                try {
+                    this.idx = Integer.parseInt(idxBits[1]);
+                } catch (NumberFormatException e) {
+                    //System.out.println("id는 숫자로 입력해주세요.");
+                }
+            }
         }
     }
 

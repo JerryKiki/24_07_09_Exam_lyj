@@ -40,37 +40,46 @@ public class MotivationController {
     }
 
     public void doUpdate(int idx) {
-        if (!motivations.containsKey(idx)) System.out.printf("%d번 명언은 존재하지 않습니다.\n", idx);
+        if (idx == 0) System.out.println("올바른 id 번호를 입력해주세요.");
         else {
-            Motivation motivation = motivations.get(idx);
-            System.out.println("명언(기존) :" + motivation.getContent());
-            System.out.println("작가(기존) :" + motivation.getAuthor());
-            System.out.print("명언 : ");
-            String newContent = Container.getSc().nextLine();
-            System.out.print("작가 : ");
-            String newAuthor = Container.getSc().nextLine();
-            motivation.setContent(newContent);
-            motivation.setAuthor(newAuthor);
-            System.out.printf("%d번 명언이 수정되었습니다.\n", idx);
+            if (!motivations.containsKey(idx)) System.out.printf("%d번 명언은 존재하지 않습니다.\n", idx);
+            else {
+                Motivation motivation = motivations.get(idx);
+                System.out.println("명언(기존) :" + motivation.getContent());
+                System.out.println("작가(기존) :" + motivation.getAuthor());
+                System.out.print("명언 : ");
+                String newContent = Container.getSc().nextLine();
+                System.out.print("작가 : ");
+                String newAuthor = Container.getSc().nextLine();
+                motivation.setContent(newContent);
+                motivation.setAuthor(newAuthor);
+                System.out.printf("%d번 명언이 수정되었습니다.\n", idx);
+            }
         }
     }
 
     public void showDetail(int idx) {
-        if (!motivations.containsKey(idx)) System.out.printf("%d번 명언은 존재하지 않습니다.\n", idx);
+        if (idx == 0) System.out.println("올바른 id 번호를 입력해주세요.");
         else {
-            Motivation motivation = motivations.get(idx);
-            System.out.println("번호 : " + motivation.getId());
-            System.out.println("날짜 : " + motivation.getRegDate());
-            System.out.println("작가 : " + motivation.getAuthor());
-            System.out.println("내용 : " + motivation.getContent());
+            if (!motivations.containsKey(idx)) System.out.printf("%d번 명언은 존재하지 않습니다.\n", idx);
+            else {
+                Motivation motivation = motivations.get(idx);
+                System.out.println("번호 : " + motivation.getId());
+                System.out.println("날짜 : " + motivation.getRegDate());
+                System.out.println("작가 : " + motivation.getAuthor());
+                System.out.println("내용 : " + motivation.getContent());
+            }
         }
     }
 
     public void doDelete(int idx) {
-        if (!motivations.containsKey(idx)) System.out.printf("%d번 명언은 존재하지 않습니다.\n", idx);
+        if (idx == 0) System.out.println("올바른 id 번호를 입력해주세요.");
         else {
-            motivations.remove(idx);
-            System.out.printf("%d번 명언이 삭제되었습니다.\n", idx);
+            if (!motivations.containsKey(idx)) System.out.printf("%d번 명언은 존재하지 않습니다.\n", idx);
+            else {
+                motivations.remove(idx);
+                System.out.printf("%d번 명언이 삭제되었습니다.\n", idx);
+            }
         }
     }
 }
