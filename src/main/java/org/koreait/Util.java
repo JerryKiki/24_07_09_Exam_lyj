@@ -1,0 +1,13 @@
+package org.koreait;
+
+import java.text.Format;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Util {
+    public String getNow() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm:ss");
+        return now.format(formatter);
+    }
+}
